@@ -11,12 +11,15 @@ class TraverseDirectory(object):
 
   def scandir(self, path):
     for f in os.listdir(path):
+      # Hidden or OS file
       if f.startswith("."):
         continue
 
       if os.path.isfile(path + "/" + f):
+        # File
         self.files.append(f)
       elif os.path.isdir(path + "/" + f):
+        # Directory
         self.scandir(path + "/" + f)
 
 

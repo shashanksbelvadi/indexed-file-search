@@ -5,11 +5,11 @@ class TraverseDirectory(object):
   dpath = ""
   files = []
 
-  def __init__(self, path):
+  def __init__(self):
     self.dpath = path
-    self.scandir(path)
+    self.scandir()
 
-  def scandir(self, path):
+  def scandir(self):
     for f in os.listdir(path):
       # Hidden or OS file
       if f.startswith("."):

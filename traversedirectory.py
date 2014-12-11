@@ -10,13 +10,10 @@ class TraverseDirectory(object):
     self.scandir(path)
 
   def scandir(self, path):
-    if not os.path.isdir():
-      return
-
     for f in os.listdir(path):
       if f.startswith("."):
         continue
-      
+
       if os.path.isfile(path + "/" + f):
         self.files.append(f)
       elif os.path.isdir(path + "/" + f):

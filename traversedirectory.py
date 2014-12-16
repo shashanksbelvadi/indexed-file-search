@@ -1,6 +1,3 @@
-import os
-import sys
-
 class TraverseDirectory(object):
   dpath = ""
   files = []

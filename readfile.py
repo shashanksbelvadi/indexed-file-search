@@ -16,4 +16,4 @@ class ReadFile(object):
     except IOError:
       print "Couldn't read file."
     except Exception:
-      raise
+      print "Bad input."

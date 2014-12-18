@@ -1,11 +1,14 @@
 import os
 import sys
+import traverser
+import parser
+import indexer
 
 class Driver(object):
   def __init__(self, path):
-    td = TraverseDirectory(dpath)
-    for f in td.files:
-      ReadFile(f)
+    t = traverser.Traverser(dpath)
+    for f in t.files:
+      indexer.Indexer(parser.Parser(f))
 
 if __name__ == "__main__":
   try:
@@ -14,3 +17,4 @@ if __name__ == "__main__":
       dr = Driver(dpath)
   except Exception:
     print "No directory specified."
+    raise

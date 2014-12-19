@@ -1,10 +1,7 @@
-import os
-
 class Indexer(object):
   
-  def __init__(self, p):
+  def __init__(self):
     self.ind = {}
-    self.addwords(p)
 
   '''
     inputs:
@@ -15,9 +12,7 @@ class Indexer(object):
   def addwords(self, p):
     for word in p.words:
       if word not in self.ind:
-        paths = []
-        paths.append(p.sourcepath)
-        self.ind[word] = paths
+        self.ind[word] = [p.sourcepath]
       else:
         self.ind[word].append(p.sourcepath)
 

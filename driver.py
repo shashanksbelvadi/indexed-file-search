@@ -6,9 +6,11 @@ import indexer
 
 class Driver(object):
   def __init__(self, path):
+    i = indexer.Indexer()
     t = traverser.Traverser(dpath)
     for f in t.files:
-      indexer.Indexer(parser.Parser(f))
+      i.addwords(parser.Parser(f))
+    print i.ind
 
 if __name__ == "__main__":
   try:

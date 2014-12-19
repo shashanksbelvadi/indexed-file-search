@@ -5,9 +5,9 @@ class Indexer(object):
 
   '''
     inputs:
-      p: instance of Parser
+      p: instance of Parser.
     output:
-      words inserted into the inverted index
+      words inserted into the inverted index.
   '''
   def addwords(self, p):
     for word in p.words:
@@ -15,11 +15,9 @@ class Indexer(object):
       self.ind[word].append(p.sourcepath)
 
   def getlocations(self, q):
-    locations = self.ind.get(q, [])
-    return locations
+    return self.ind.get(q, [])
 
   @staticmethod
   def printlocations(locations):
     for l in locations:
       print l
-      

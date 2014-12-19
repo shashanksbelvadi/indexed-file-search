@@ -11,8 +11,15 @@ class Indexer(object):
   '''
   def addwords(self, p):
     for word in p.words:
-      if word not in self.ind:
-        self.ind[word] = [p.sourcepath]
-      else:
-        self.ind[word].append(p.sourcepath)
+      self.ind[word] = self.ind.get(word, [])
+      self.ind[word].append(p.sourcepath)
 
+  def getlocations(self, q):
+    locations = self.ind.get(q, [])
+    return locations
+
+  @staticmethod
+  def printlocations(locations):
+    for l in locations:
+      print l
+      

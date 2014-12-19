@@ -14,8 +14,11 @@ class Indexer(object):
       self.ind[word] = self.ind.get(word, [])
       self.ind[word].append(p.sourcepath)
 
-  def getlocations(self, q):
-    return self.ind.get(q, [])
+  def getlocations(self, qwords):
+    locations = []
+    for q in qwords:
+      locations.extend(self.ind.get(q, []))
+    return locations
 
   @staticmethod
   def printlocations(locations):

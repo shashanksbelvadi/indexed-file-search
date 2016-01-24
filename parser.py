@@ -17,6 +17,7 @@ class Parser(object):
   def parse(handle):
     words = []
     for line in handle:
+      # Remove newline and split string into a list of words
       line = line.rstrip().split(" ")
       for w in line:
         w = Parser.removepunctuation(w)
